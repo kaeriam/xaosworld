@@ -110,4 +110,73 @@ h1 {
 
 #playBtn span {
   pointer-events: none; /* ensures clicks go to button */
+
+}
+
+@media (max-width: 768px) {
+
+  /* Stack container vertically */
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .left, .right {
+    flex: none;
+    width: 100%;
+    height: auto;
+  }
+
+  .left img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .right {
+    padding: 20px;
+  }
+
+  /* =========================
+     Tracklist adjustments
+  ========================== */
+  .tracklist {
+    flex-direction: column;  /* already column, ensure consistency */
+    gap: 15px;
+    width: 100%;
+    align-items: stretch;    /* make each track fill container width */
+  }
+
+  .track {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;         /* slightly smaller text for mobile */
+  }
+
+  /* =========================
+     Scrubbar adjustments
+  ========================== */
+  .scrubbar {
+    flex-direction: column; /* stack elements vertically */
+    align-items: stretch;
+    padding: 15px 0;
+    gap: 10px;
+  }
+
+  #timeline {
+    width: 100%;
+    height: 6px;
+  }
+
+  #playBtn {
+    width: 100%;           /* full-width button for easier tapping */
+    font-size: 18px;
+    padding: 12px 0;
+  }
+
+  /* Optional: adjust body padding */
+  body {
+    padding: 20px;
+    text-align: left;       /* optional, looks better on narrow screens */
+  }
 }
