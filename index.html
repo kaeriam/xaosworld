@@ -1,0 +1,73 @@
+<html lang="en">
+    <meta charset="UTF-8">  
+    <meta name="viewport" content=""width=device-width, initial-scale="1.0">
+    
+    <title>XAOS Web-Player</title>
+    <link rel="stylesheet" href="style.css"> 
+    <style> 
+    <!--I leave this open for specific changes on this webpage specifically-->
+    </style>
+</head>
+
+<body>
+    
+    <h1>XAOS Web-Player</h1>
+    <hr>
+    <h2>Welcome to the XAOS Web-Player</h2>
+    <p>XXXX 'Xaos made us antifragile' XXXX</p>
+    <hr>
+
+    <div class="container">
+      <div class="left">
+        <img src="pictures/artwork1.jpg" alt="coverart">
+      </div>
+
+      <div class="right">
+        <div class="tracklist">
+          <div class="track" data-src="music/1._KYOTO.mp3">01 – KYOTO</div>
+          <div class="track" data-src="music/2._MADELINE_X.mp3">02 – MADELIINE X</div>
+          <div class="track" data-src="music/track3.mp3">03 – UNRELEASED 003</div>
+          <div class="track" data-src="music/track4.mp3">04 – UNRELEASED 004</div>
+          <div class="track" data-src="music/track5.mp3">05 – UNRELEASED 005</div>
+          <div class="track" data-src="music/track4.mp3">06 – UNRELEASED 006</div>
+          <div class="track" data-src="music/track5.mp3">07 – UNRELEASED 007</div>
+          <div class="track" data-src="music/track4.mp3">08 – UNRELEASED 008</div>
+        </div>
+      </div> 
+    </div>  
+
+
+  <!-- This is the new custom player im trying to build -->
+
+    <audio id="audio-player" controls style="display:none;" controlslist="nodownload"></audio>
+      
+      <div class="scrubbar"> 
+        <span id="current-time">0:00</span>
+          <input type="range" id="timeline" value="0" min="0" step="0.1">
+        <span id="total-time">0:00</span>
+      </div>
+
+      <div class="playerbutton">
+        <button id="playBtn">
+            <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+              <polygon points="5,3 19,12 5,21" fill="white"/>
+            </svg>
+            <svg id="pauseIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" style="display:none;">
+              <rect x="5" y="3" width="5" height="18" fill="white"/>
+              <rect x="14" y="3" width="5" height="18" fill="white"/>
+            </svg>
+
+            <span id="playIcon"></span>
+            <span id="pauseIcon" style="display:none;"></span>
+        </button>
+      </div>
+
+  <script src="script.js"></script>
+
+    
+</body>
+
+<footer>    
+  <hr>
+    <p>© 2025 KAE WebWorld. All rights reserved. Unauthorized use is prohibited</p>
+</footer>
