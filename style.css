@@ -68,7 +68,7 @@ h1 {
 }
 
 #timeline {
-  -webkit-appearance: none; /* remove default style */
+  -webkit-appearance: none; /* remove default style this is not a bug ITS NORMAL */
   width: 100%;
   height: 6px; /* track height */
   background: #ccc; /* track background */
@@ -110,7 +110,6 @@ h1 {
 
 #playBtn span {
   pointer-events: none; /* ensures clicks go to button */
-
 }
 
 /* =========================
@@ -168,4 +167,79 @@ h1 {
     padding: 15px;
     font-size: 1rem;
   }
+}
+
+/* =========================
+   PASSWORD PROTECTION
+========================= */
+.password-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #1b1b12;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+#vault-title {
+  color: white;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.password-container {
+  background: #1a1a1a;
+  padding: 40px;
+  border-radius: 0px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  min-width: 300px;
+}
+
+.password-container h2 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+#password-input {
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #333;
+  border-radius: 0px;
+  background: #2a2a2a;
+  color: white;
+  width: 250px;
+  margin-bottom: 20px;
+  outline: none;
+}
+
+#password-input:focus {
+  border-color: #555;
+}
+
+#submit-password {
+  padding: 12px 30px;
+  font-size: 16px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 0px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-family: auto;
+}
+
+#submit-password:hover {
+  background: #444;
+}
+
+.error-message {
+  color: #ff6b6b;
+  margin-top: 10px;
+  font-size: 14px;
 }
