@@ -10,7 +10,21 @@
 </head>
 
 <body>
-    
+
+    <!-- PASSWORD LAYER-->
+    <div id="password-overlay" class="password-overlay">
+      <h1 id="vault-title">THE VAULT</h1>
+        <div class="password-container">
+            <h2>Password Required</h2>
+            <input type="password" id="password-input" placeholder="Enter password" autocomplete="off">
+            <button id="submit-password">Enter</button>
+            <div id="password-error" class="error-message"></div>
+        </div>
+    </div>
+    <!-- End of the passsword layer -->
+
+
+    <div id="main-content" style="display: none;">
     <h1>XAOS Web-Player</h1>
     <hr>
     <h2>Welcome to the XAOS Web-Player</h2>
@@ -24,7 +38,7 @@
 
       <div class="right">
         <div class="tracklist">
-          <div class="track" data-src="music/THE_EXCITEMENT_SNIPPET.mp3">01 – THE EXCITEMENT SNIPPET</div>
+          <div class="track" data-src="music/THE_EXCITEMENT.mp3">01 – THE EXCITEMENT</div>
           <div class="track" data-src="music/track3.mp3">02 – UNRELEASED 002</div>
           <div class="track" data-src="music/track3.mp3">03 – UNRELEASED 003</div>
           <div class="track" data-src="music/track4.mp3">04 – UNRELEASED 004</div>
@@ -64,12 +78,10 @@
 
   <script src="script.js"></script>
 
-    
+    </div>
 </body>
 
 <footer>    
   <hr>
     <p>© 2025 KAE WebWorld. All rights reserved. Unauthorized use is prohibited</p>
-
 </footer>
-
