@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XAOS Web-Player - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="password-overlay" class="password-overlay">
+        <h1 id="vault-title">THE VAULT</h1>
+        <div class="password-container">
+            <h2>Password Required</h2>
+            <input type="password" id="password-input" placeholder="Enter password" autocomplete="off">
+            <button id="submit-password">Enter</button>
+            <div id="password-error" class="error-message"></div>
+        </div>
+    </div>
+
+    <script>
+        const passwordInput = document.getElementById("password-input");
+        const submitButton = document.getElementById("submit-password");
+        const errorMessage = document.getElementById("password-error");
+
+        async function checkPassword() {
+            const password = passwordInput.value;
+
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ password })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    window.location.href = '/player';
+                } else {
+                    errorMessage.textContent = data.message || "Incorrect password. Please try again.";
+                    passwordInput.value = "";
+                    passwordInput.focus();
+                }
+            } catch (error) {
+                errorMessage.textContent = "Connection error. Please try again.";
+            }
+        }
+
+        submitButton.addEventListener("click", checkPassword);
+        passwordInput.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") checkPassword();
+        });
+
+        window.addEventListener("load", () => {
+            passwordInput.focus();
+        });
+    </script>
+</body>
+</html>
