@@ -83,39 +83,40 @@ timeline.addEventListener("input", () => {
 });
 
 
+// MOBILE NAVIGATION MENU
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
+const dropdowns = document.querySelectorAll(".dropdown");
 
-// PASSWORD FUNCTIONALITY 
-const passwordOverlay = document.getElementById("password-overlay");
-const passwordInput = document.getElementById("password-input");
-const submitButton = document.getElementById("submit-password");
-const errorMessage = document.getElementById("password-error");
-const mainContent = document.getElementById("main-content");
-
-const correctPassword = "XXXXAOS";
-
-function checkPassword() {
-  const enteredPassword = passwordInput.value;
-  
-  if (enteredPassword === correctPassword) {
-    passwordOverlay.style.display = "none";
-    mainContent.style.display = "block";
-    errorMessage.textContent = "";
-  } else {
-    errorMessage.textContent = "Incorrect password. Please try again.";
-    passwordInput.value = "";
-    passwordInput.focus();
-  }
+// Toggle mobile menu
+if (hamburger) {
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+  });
 }
 
-submitButton.addEventListener("click", checkPassword);
-
-passwordInput.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") {
-    checkPassword();
+// Handle dropdown clicks on mobile
+dropdowns.forEach(dropdown => {
+  const dropbtn = dropdown.querySelector(".dropbtn");
+  if (dropbtn) {
+    dropbtn.addEventListener("click", (e) => {
+      // On mobile, toggle dropdown instead of navigating
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        dropdown.classList.toggle("active");
+      }
+    });
   }
 });
 
-// Focus on password input when page loads
-window.addEventListener("load", () => {
-  passwordInput.focus();
+// Close menu when clicking on a nav link
+document.querySelectorAll(".nav-menu a").forEach(link => {
+  link.addEventListener("click", () => {
+    // Don't close if it's a dropdown button
+    if (!link.classList.contains("dropbtn")) {
+      hamburger.classList.remove("active");
+      navMenu.classList.remove("active");
+    }
+  });
 });
